@@ -12,12 +12,18 @@ add_library(LibFunctions lib.cpp)
 
 add_executable(LibFunctionsTests_cli test_main.cpp)
 
-target_link_libraries(hw1_cli LibFunctions)
+set_target_properties(hw1_cli LibFunctionsTests_cli PROPERTIES
+	CXX_STANDARD 14
+	CXX_STANDARD_REQUIRED ON
+	COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+)
 
 set_target_properties(LibFunctionsTests_cli PROPERTIES
 	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
 	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
+
+target_link_libraries(hw1_cli LibFunctions)
 
 target_link_libraries(LibFunctionsTests_cli
 	LibFunctions
