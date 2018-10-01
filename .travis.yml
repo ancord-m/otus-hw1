@@ -1,4 +1,5 @@
 language: cpp
 script:
  - cmake .
+ - cat version.h
  - cmake --build .
