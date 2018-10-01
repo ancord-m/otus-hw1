@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-#project(homework_1 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+project(homework_1 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 configure_file(version.h.in version.h)
 
