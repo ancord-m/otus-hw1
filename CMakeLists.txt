@@ -23,3 +23,5 @@ target_link_libraries(LibFunctionsTests_cli
 	LibFunctions
 	${Boost_LIBRARIES}
 )
+
+enable_testing()
