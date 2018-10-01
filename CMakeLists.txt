@@ -42,6 +42,8 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 
 set(CPACK_PACKAGE_CONTACT leon8005@gmail.com)
 
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+
 include(CPack)
 
 add_test(VersionNum_IsGreaterThanZero LibFunctionsTests_cli)
