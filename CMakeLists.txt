@@ -19,3 +19,7 @@ set_target_properties(LibFunctionsTests_cli PROPERTIES
 	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
+target_link_libraries(LibFunctionsTests_cli
+	LibFunctions
+	${Boost_LIBRARIES}
+)
