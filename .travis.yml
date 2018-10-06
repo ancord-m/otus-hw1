@@ -10,4 +10,4 @@ deploy:
  provider: script
  skip_cleaning: true
  script:
- - curl -T homework_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ancord-m:$BINTRAY_API_KEY "https://api.bintray.com/content/ancord-m/otus-cpp-hw/hw1/$TRAVIS_BUILD_NUMBER/homework_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb-distribution=trusty;deb-component=main;deb-architecture=amd64;publish=1"
+ - curl -T homework-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ancord-m:$BINTRAY_API_KEY "https://api.bintray.com/content/ancord-m/otus-cpp-hw/hw1/$TRAVIS_BUILD_NUMBER/homework-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb-distribution=trusty;deb-component=main;deb-architecture=amd64;publish=1"
