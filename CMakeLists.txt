@@ -26,7 +26,7 @@ set_target_properties(functions_tests PROPERTIES
 target_link_libraries(homework functions)
 
 target_link_libraries(functions_tests
-	LibFunctions
+	functions
 	${Boost_LIBRARIES}
 )
 
