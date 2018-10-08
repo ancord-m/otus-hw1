@@ -6,33 +6,33 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 configure_file(version.h.in version.h)
 
-add_executable(homework_cli main.cpp)
+add_executable(homework main.cpp)
 
-add_library(LibFunctions lib.cpp)
+add_library(functions lib.cpp)
 
-add_executable(LibFunctionsTests_cli test_main.cpp)
+add_executable(functions_tests test_main.cpp)
 
-set_target_properties(homework_cli LibFunctionsTests_cli PROPERTIES
+set_target_properties(homework functions_tests PROPERTIES
 	CXX_STANDARD 14
 	CXX_STANDARD_REQUIRED ON
-	COMPILE_OPTIONS -Wpedantic -Wall -Wextra
+	COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
 
-set_target_properties(LibFunctionsTests_cli PROPERTIES
+set_target_properties(functions_tests PROPERTIES
 	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
 	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-target_link_libraries(homework_cli LibFunctions)
+target_link_libraries(homework functions)
 
-target_link_libraries(LibFunctionsTests_cli
+target_link_libraries(functions_tests
 	LibFunctions
 	${Boost_LIBRARIES}
 )
 
 enable_testing()
 
-install(TARGETS homework_cli RUNTIME DESTINATION bin)
+install(TARGETS homework RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
@@ -46,4 +46,4 @@ set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
 include(CPack)
 
-add_test(VersionNum_IsGreaterThanZero LibFunctionsTests_cli)
+add_test(VersionNum_IsGreaterThanZero functions_tests)
