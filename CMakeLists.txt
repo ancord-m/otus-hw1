@@ -1,21 +1,21 @@
 cmake_minimum_required(VERSION 3.2)
 
-project(homework VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 configure_file(version.h.in version.h)
 
-add_executable(homework main.cpp)
+add_executable(helloworld main.cpp)
 
 add_library(functions lib.cpp)
 
 add_executable(functions_tests test_main.cpp)
 
-set_target_properties(homework functions_tests PROPERTIES
+set_target_properties(helloworld functions_tests PROPERTIES
 	CXX_STANDARD 14
 	CXX_STANDARD_REQUIRED ON
-	COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+	COMPILE_OPTIONS -Wpedantic;-Wall;-Wextra
 )
 
 set_target_properties(functions_tests PROPERTIES
@@ -23,7 +23,7 @@ set_target_properties(functions_tests PROPERTIES
 	INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-target_link_libraries(homework functions)
+target_link_libraries(helloworld functions)
 
 target_link_libraries(functions_tests
 	functions
@@ -32,7 +32,7 @@ target_link_libraries(functions_tests
 
 enable_testing()
 
-install(TARGETS homework RUNTIME DESTINATION bin)
+install(TARGETS helloworld RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
